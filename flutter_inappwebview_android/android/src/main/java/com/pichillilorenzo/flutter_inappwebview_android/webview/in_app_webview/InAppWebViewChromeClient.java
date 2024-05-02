@@ -145,37 +145,37 @@ public class InAppWebViewChromeClient extends WebChromeClient implements PluginR
     }
     return Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888);
   }
-
-  @Override
-  public void onHideCustomView() {
-    Activity activity = getActivity();
-    if (activity == null) {
-      return;
-    }
-
-    View decorView = getRootView();
-    if (decorView == null) {
-      return;
-    }
-    if (this.mCustomView != null) {
-      ((FrameLayout) decorView).removeView(this.mCustomView);
-    }
-    this.mCustomView = null;
-    decorView.setSystemUiVisibility(this.mOriginalSystemUiVisibility);
-    activity.setRequestedOrientation(this.mOriginalOrientation);
-    if (this.mCustomViewCallback != null) {
-      this.mCustomViewCallback.onCustomViewHidden();
-    }
-    this.mCustomViewCallback = null;
-    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-    if (inAppWebView != null) {
-      WebViewChannelDelegate eventWebViewChannelDelegate = inAppWebView.channelDelegate;
-      if (eventWebViewChannelDelegate != null)
-        eventWebViewChannelDelegate.onExitFullscreen();
-      inAppWebView.setInFullscreen(false);
-    }
-  }
+//
+//  @Override
+//  public void onHideCustomView() {
+//    Activity activity = getActivity();
+//    if (activity == null) {
+//      return;
+//    }
+//
+//    View decorView = getRootView();
+//    if (decorView == null) {
+//      return;
+//    }
+//    if (this.mCustomView != null) {
+//      ((FrameLayout) decorView).removeView(this.mCustomView);
+//    }
+//    this.mCustomView = null;
+//    decorView.setSystemUiVisibility(this.mOriginalSystemUiVisibility);
+//    activity.setRequestedOrientation(this.mOriginalOrientation);
+//    if (this.mCustomViewCallback != null) {
+//      this.mCustomViewCallback.onCustomViewHidden();
+//    }
+//    this.mCustomViewCallback = null;
+//    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//
+//    if (inAppWebView != null) {
+//      WebViewChannelDelegate eventWebViewChannelDelegate = inAppWebView.channelDelegate;
+//      if (eventWebViewChannelDelegate != null)
+//        eventWebViewChannelDelegate.onExitFullscreen();
+//      inAppWebView.setInFullscreen(false);
+//    }
+//  }
 
   @Override
   public void onShowCustomView(final View paramView, final CustomViewCallback paramCustomViewCallback) {
